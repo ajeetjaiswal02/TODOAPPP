@@ -1,6 +1,7 @@
 // temporay data util firebase login
 export default tempData = [
   {
+    id: 1,
     name: "Plan a Trip",
     color: "#24A6D9",
     todos: [
@@ -23,6 +24,7 @@ export default tempData = [
     ],
   },
   {
+    id: 2,
     name: "Errands",
     color: "#8022D9",
     todos: [
@@ -41,6 +43,7 @@ export default tempData = [
     ],
   },
   {
+    id: 3,
     name: "Leisure",
     color: "#2912B9",
     todos: [
