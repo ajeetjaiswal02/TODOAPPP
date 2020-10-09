@@ -9,6 +9,7 @@ import {
   KeyboardAvoidingView,
   TextInput,
   Keyboard,
+  Animated,
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import colors from "../Colors";
@@ -33,6 +34,13 @@ export default class TodoModal extends React.Component {
     this.setState({ newTodo: "" });
 
     Keyboard.dismiss();
+  };
+
+  deleteTodo = (index) => {
+    let list = this.props.lists;
+    list.todos.splice(index, 1);
+
+    this.props.updateList(list);
   };
 
   renderTodo = (todo, index) => {
@@ -95,7 +103,7 @@ export default class TodoModal extends React.Component {
             <FlatList
               data={list.todos}
               renderItem={({ item, index }) => this.renderTodo(item, index)}
-              keyExtractor={(item) => item.title}
+              keyExtractor={(_, index) => index.toString()}
               contentContainerStyle={{
                 paddingHorizontal: 32,
                 paddingVertical: 64,
